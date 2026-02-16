@@ -92,7 +92,7 @@ jobs:
             BRANCH_NAME="${{ github.ref_name }}"
           fi
 
-          if [[ "$BRANCH_NAME" == "main" ]]; then
+          if [[ "$BRANCH_NAME" == "master" ]]; then
             echo "WORKSPACE_NAME=prod" >> $GITHUB_ENV
             echo "tf_workspace=prod" >> $GITHUB_OUTPUT
             echo "TF_VAR_FILE=prod.tfvars" >> $GITHUB_ENV
@@ -182,7 +182,7 @@ jobs:
         id: env-vars
         run: |
           BRANCH_NAME="${{ github.ref_name }}"
-          if [[ "$BRANCH_NAME" == "main" ]]; then
+          if [[ "$BRANCH_NAME" == "master" ]]; then
             echo "WORKSPACE_NAME=prod" >> $GITHUB_ENV
             echo "TF_VAR_FILE=prod.tfvars" >> $GITHUB_ENV
           elif [[ "$BRANCH_NAME" == "test" ]]; then
