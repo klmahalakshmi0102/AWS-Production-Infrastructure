@@ -6,12 +6,14 @@ on:
       - main
       - test
       - dev
+      - master
 
   pull_request:
     branches:
       - main
       - test
       - dev
+      - master
 
 env:
   TF_LOG: INFO
