@@ -33,6 +33,7 @@ jobs:
     defaults:
       run:
         shell: bash
+        working-directory: automation/code
 
     steps:
       - name: Checkout
@@ -62,6 +63,7 @@ jobs:
         uses: aquasecurity/trivy-action@0.28.0
         with:
           scan-type: "config"
+          scan-ref: ./automation/code
           hide-progress: false
           format: "table"
           exit-code: "0"
@@ -152,7 +154,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: tfplan-${{ env.WORKSPACE_NAME }}
-          path: tfplan
+          path: automation/code/tfplan
 
   terraform-apply:
     name: "Terraform Apply"
